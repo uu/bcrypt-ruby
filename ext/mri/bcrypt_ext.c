@@ -39,7 +39,7 @@ static VALUE bc_crypt(VALUE self, VALUE key, VALUE setting) {
 
     value = crypt_ra(
 	    NIL_P(key) ? NULL : StringValueCStr(key),
-	    NIL_P(setting) ? NULL : StringValuePtr(setting),
+	    NIL_P(setting) ? NULL : StringValueCStr(setting),
 	    &data,
 	    &size);
 
