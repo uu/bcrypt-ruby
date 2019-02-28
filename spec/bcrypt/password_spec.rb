@@ -28,6 +28,8 @@ describe "Creating a hashed password" do
   end
 
   specify "blows up when null bytes are in the string" do
+    # JRuby can handle the null bytes
+    skip if RUBY_ENGINE == 'jruby'
     expect { BCrypt::Password.create( "foo\0bar".chop  ) }.to raise_error
   end
 end
